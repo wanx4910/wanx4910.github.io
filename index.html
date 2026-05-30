@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="David Wan - Senior Data Analyst, Quantitative Developer, and Data Science professional portfolio." />
+  <title>David Wan | Data & Quantitative Developer</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #5c667a;
+      --line: #dbe2ef;
+      --accent: #2454d6;
+      --accent-dark: #183a98;
+      --accent-soft: #e9efff;
+      --success-soft: #e8f7f0;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(36, 84, 214, 0.12), transparent 28rem),
+        radial-gradient(circle at 85% 10%, rgba(20, 184, 166, 0.10), transparent 24rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 38%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(219, 226, 239, 0.7);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.08rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 96px 0 68px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 46px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 22px 0 20px;
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+    }
+
+    .subtitle {
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 14px 30px rgba(36, 84, 214, 0.24);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--accent-dark);
+      border-color: var(--line);
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .profile-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--accent-soft);
+    }
+
+    .stat:nth-child(2) {
+      background: var(--success-soft);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1.1;
+      color: var(--accent-dark);
+    }
+
+    section {
+      padding: 52px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(23, 32, 51, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 24px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(23, 32, 51, 0.05);
+    }
+
+    .role-meta h3 {
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      letter-spacing: -0.03em;
+    }
+
+    .company {
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    .role ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .role li + li {
+      margin-top: 8px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .contact-panel {
+      background: linear-gradient(135deg, #172033, #2454d6);
+      color: white;
+      border-radius: calc(var(--radius) + 8px);
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .contact-panel p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 28px 0 46px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid,
+      .role,
+      .card-grid,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading,
+      .contact-panel {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .contact-panel {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">David Wan</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Data • Cloud Migration • Quant Systems</span>
+          <h1>Data Analyst & Quantitative Developer</h1>
+          <p class="subtitle">
+            I build analytics workflows, data pipelines, automation tools, dashboards, and quantitative systems across financial services, trading infrastructure, and applied data science.
+          </p>
+          <div class="cta-row">
+            <a class="button primary" href="https://www.linkedin.com/in/david-w-13b1b641/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            <a class="button secondary" href="#experience">View Experience</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="Professional snapshot">
+          <h2>Professional Snapshot</h2>
+          <p>
+            Experienced in financial services analytics, AWS data migration support, quantitative trading systems, data science workflows, dashboards, and production-style automation.
+          </p>
+          <div class="stat-list">
+            <div class="stat">
+              <strong>Python</strong>
+              Data analysis, scripting, automation, NLP, dashboards, and ML workflows
+            </div>
+            <div class="stat">
+              <strong>AWS & Governance</strong>
+              Data migration support, AWS Glue PoC work, and data governance implementation
+            </div>
+            <div class="stat">
+              <strong>Quant Systems</strong>
+              Kafka, ZeroMQ, REST/WebSocket APIs, PostgreSQL, TimescaleDB, Parquet, and Linux tooling
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Core Expertise</h2>
+          <p>Portfolio-style summary adapted from the updated resume, focused on analytics, cloud data initiatives, automation, trading systems, and applied machine learning.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Analytics & Business Insight</h3>
+            <p>Extracted and analyzed business-critical data to support marketing, customer retention, business development, agent monitoring, and client retention initiatives.</p>
+          </article>
+          <article class="card">
+            <h3>Automation & Data Pipelines</h3>
+            <p>Built asynchronous scripts, Windows task-scheduled workflows, Linux automation, trading record pipelines, and reporting systems using Python and related tooling.</p>
+          </article>
+          <article class="card">
+            <h3>Quant & Data Infrastructure</h3>
+            <p>Developed trading tools, dashboards, exchange integrations, databases, and high-performance middleware workflows using Kafka, ZeroMQ, REST, WebSocket, and market data systems.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Experience</h2>
+          <p>A concise public-facing version of the professional history from the updated resume.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <div class="role-meta">
+              <h3>Senior Data Analyst</h3>
+              <div class="company">Sun Life Hong Kong Ltd</div>
+              <div class="date">June 2023 - December 2025 • Hong Kong</div>
+            </div>
+            <ul>
+              <li>Acted as a technical project manager, liaising with offshore teams to deploy automation initiatives.</li>
+              <li>Extracted and analyzed data for targeted marketing and customer retention campaigns, providing actionable insights to business stakeholders.</li>
+              <li>Conducted a proof of concept for migrating data pipelines from on-premises infrastructure onto AWS Glue.</li>
+              <li>Supported Sun Life Hong Kong's data migration to AWS and participated in data governance implementation.</li>
+              <li>Created dashboards for business development teams to monitor high-value agent departures and client retention.</li>
+              <li>Spearheaded data science initiatives and Python software development best practices.</li>
+              <li>Built asynchronous Python scripts to speed up address parsing for KYC-related workflows.</li>
+              <li>Created customer classification and NLP workflows using open-source RNN and BERT-based models.</li>
+              <li>Automated Windows-based data pipelines with batch scripts and Task Scheduler.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">
+              <h3>Quantitative Trader & Developer</h3>
+              <div class="company">Demarc Capital</div>
+              <div class="date">January 2020 - December 2022 • Hong Kong</div>
+            </div>
+            <ul>
+              <li>Executed quantitative trading strategies in cryptocurrency derivatives markets.</li>
+              <li>Designed and implemented improvements to automated trading infrastructure using ZeroMQ, Kafka, and MessagePack.</li>
+              <li>Implemented trading algorithms to improve risk management.</li>
+              <li>Built CLI trading tools for real-time pricing, positions, order fills, and exchange connectivity through WebSocket and REST interfaces.</li>
+              <li>Automated trading records, statistics generation, market-data backup, and Linux cron/bash workflows.</li>
+              <li>Maintained data pipelines and analysis systems using Python, Pandas, Kafka, Arrow, Parquet, Git, and Linux tools.</li>
+              <li>Built interactive dashboards with Plotly, Bokeh, and Dash.</li>
+              <li>Set up PostgreSQL/TimescaleDB market and trading data systems and performed Proxmox/Ubuntu administration.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">
+              <h3>Data Scientist Intern</h3>
+              <div class="company">Miro AI</div>
+              <div class="date">September 2019 - December 2019 • Hong Kong</div>
+            </div>
+            <ul>
+              <li>Completed an end-to-end data science project involving architecture design, data mining, data cleaning, modelling, and deployment.</li>
+              <li>Worked on a deep-learning athletic shoe recommendation engine.</li>
+              <li>Generated datasets by scraping images from search engines and social media platforms.</li>
+              <li>Trained SqueezeNet models to detect athlete footwear using Keras/TensorFlow on Google Compute Engine.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <div class="role-meta">
+              <h3>Research Assistant</h3>
+              <div class="company">Wilfrid Laurier University</div>
+              <div class="date">September 2018 - December 2018 • Waterloo, Ontario</div>
+            </div>
+            <ul>
+              <li>Reviewed literature and datasets on cannabis consumption and characteristics associated with usage frequency.</li>
+              <li>Analyzed socioeconomic variables and cannabis consumption intensity using Linear Probability Models and Finite Mixture Models.</li>
+              <li>Prepared statistical analysis and research writing using Stata.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Technical Skills</h2>
+          <p>Selected tools, technologies, and domains from the updated resume, grouped for quick scanning by recruiters and collaborators.</p>
+        </div>
+        <div class="skills">
+          <span class="pill">Python</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Asyncio</span>
+          <span class="pill">AWS Glue</span>
+          <span class="pill">AWS Data Migration</span>
+          <span class="pill">Data Governance</span>
+          <span class="pill">Kafka</span>
+          <span class="pill">ZeroMQ</span>
+          <span class="pill">MessagePack</span>
+          <span class="pill">WebSocket APIs</span>
+          <span class="pill">REST APIs</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">TimescaleDB</span>
+          <span class="pill">Apache Arrow</span>
+          <span class="pill">Apache Parquet</span>
+          <span class="pill">Plotly</span>
+          <span class="pill">Bokeh</span>
+          <span class="pill">Dash</span>
+          <span class="pill">RNN Models</span>
+          <span class="pill">BERT NLP</span>
+          <span class="pill">TensorFlow</span>
+          <span class="pill">Keras</span>
+          <span class="pill">Linux</span>
+          <span class="pill">Bash</span>
+          <span class="pill">Git</span>
+          <span class="pill">Stata</span>
+          <span class="pill">English</span>
+          <span class="pill">Cantonese</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Education</h2>
+          <p>Academic background listed in the updated resume.</p>
+        </div>
+        <div class="education-grid">
+          <article class="card">
+            <h3>Wilfrid Laurier University</h3>
+            <p>Master of Arts in Business Economics, 2019. GPA: 10.7/12.0.</p>
+          </article>
+          <article class="card">
+            <h3>McMaster University</h3>
+            <p>Bachelor of Arts in Economics / Bachelor of Engineering in Chemical Engineering, 2017. GPA: 10.7/12.0; graduated Summa Cum Laude.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <h2>Let’s connect.</h2>
+            <p>For data, analytics, automation, cloud migration, and quantitative development opportunities, connect with me on LinkedIn.</p>
+          </div>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/david-w-13b1b641/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+            <a href="#top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 David Wan. Built for GitHub Pages.</div>
+  </footer>
+</body>
+</html>
